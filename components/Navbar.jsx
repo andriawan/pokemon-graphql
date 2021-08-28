@@ -7,7 +7,7 @@ import {
   NavbarMobileWrapper,
   ListNavMobile,
   NavbarMobileSection
-} from '../styled/Navbar';
+} from '../styled/components/Navbar';
 import { css } from '@emotion/css';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -24,7 +24,7 @@ export default function Navbar() {
           <a className={css`width: 130px;`}>
             <Image 
               src={PokemonLogo}
-              width={270}
+              width={300}
               height={160}
             />
           </a>

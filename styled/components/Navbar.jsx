@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { mediaQueries } from './Global';
+import { mediaQueries } from '../Global';
 
 export const BackgroundNavbar = styled.div`
   background-color: #FFDE00;
@@ -45,8 +45,8 @@ export const ListNavMobile = `
   font-family: 'Poppins', sans-serif;
   color: #FFFFFF;
   margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  border-bottom: 1px solid white;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid white;
   cursor: pointer;
 `
 

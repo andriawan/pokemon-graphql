@@ -10,10 +10,11 @@
     "test": "jest"
   },
   "dependencies": {
-    "@apollo/client": "^3.4.9",
     "@apollo/react-hooks": "^4.0.0",
     "apollo-boost": "^0.4.9",
+    "framer-motion": "^4.1.17",
     "graphql": "^15.5.1",
+    "graphql-tag": "^2.12.5",
     "next": "11.1.0",
     "next-pwa": "^5.3.1",
     "next-seo": "^4.26.0",
