@@ -5,25 +5,26 @@ import {
 import { GetPokemonsContext } from '../context/GetPokemonContext';
 import { useContext } from 'react';
 import Image from 'next/image';
+import PokemonCardSkeleton from './Skeleton/PokemonCardSkeleton';
 
-export default function PokemonCard() {
+export default function PokemonCard({ fetchData }) {
   const dataPokemon = useContext(GetPokemonsContext);
-  const pokemonCollection = !!dataPokemon && dataPokemon.pokemons.results
+  const pokemonCollection = !!dataPokemon && dataPokemon.pokemons.results || []
 
   return (
     <CardPokemonWrapper>
-      {!!pokemonCollection && pokemonCollection.map((pokemon) => (
+      {pokemonCollection.slice(0, fetchData).map((pokemon) => (
         <CardPokemonContent key={pokemon.id}>
-          {console.log(pokemon)}
           <Image 
             src={pokemon.dreamworld}
             alt={pokemon.name}
             width={150}
             height={150}
           />
-          <h1>{pokemon.name}</h1>
+          <h1>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h1>
         </CardPokemonContent>
       ))}
     </CardPokemonWrapper>
   )
 }
+

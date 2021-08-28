@@ -1,9 +1,9 @@
-import { css } from "@emotion/css";
+import { css } from '@emotion/css';
 import { 
   WrapperSearchPokemon, 
   SearchBoxPokemon,
   ButtonSearch
-} from "../styled/components/SearchPokemon";
+} from '../styled/components/SearchPokemon';
 
 export default function SearchPokemon({ value, onChange}) {
   return (
