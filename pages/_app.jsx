@@ -1,5 +1,5 @@
 import '../styled/global.css';
-import { ApolloProvider } from '@apollo/react-hooks';
+import { ApolloProvider } from '@apollo/client';
 import { client } from '../apollo/client';
 
 function MyApp({ Component, pageProps }) {

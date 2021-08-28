@@ -1,3 +1,4 @@
+import { keyframes } from '@emotion/css';
 import styled from '@emotion/styled';
 import { mediaQueries } from '../Global';
 
@@ -34,4 +35,10 @@ export const CardPokemonContent = styled.div`
   margin-left: 1rem;
   margin-right: 1rem;
   background-color: #B3A125;
+`;
+
+export const Loader = keyframes`
+  to {
+    transform: rotate(360deg);
+  }
 `;

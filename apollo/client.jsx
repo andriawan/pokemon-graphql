@@ -1,6 +1,13 @@
-import ApolloClient from 'apollo-boost';
+import { 
+  ApolloClient, 
+  createHttpLink, 
+  InMemoryCache 
+} from '@apollo/client';
 
 export const client = new ApolloClient({
   ssrMode: true,
-  uri: process.env.GET_POKEMON
+  link: createHttpLink({
+    uri: process.env.GET_POKEMON
+  }),
+  cache: new InMemoryCache(),
 })
