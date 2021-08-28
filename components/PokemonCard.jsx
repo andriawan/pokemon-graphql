@@ -9,7 +9,7 @@ import PokemonCardSkeleton from './Skeleton/PokemonCardSkeleton';
 
 export default function PokemonCard({ fetchData }) {
   const dataPokemon = useContext(GetPokemonsContext);
-  const pokemonCollection = !!dataPokemon && dataPokemon.pokemons.results || []
+  const pokemonCollection = !!dataPokemon && dataPokemon.pokemons.results || [];
 
   return (
     <CardPokemonWrapper>
@@ -25,6 +25,5 @@ export default function PokemonCard({ fetchData }) {
         </CardPokemonContent>
       ))}
     </CardPokemonWrapper>
-  )
-}
-
+  );
+};
