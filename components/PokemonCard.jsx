@@ -9,6 +9,7 @@ import { useContext } from 'react';
 import Image from 'next/image';
 import Spinner from '../public/icons/Spinner';
 import { css } from '@emotion/css';
+import Link from 'next/link';
 
 export default function PokemonCard({ fetchData }) {
   const dataPokemon = useContext(GetPokemonsContext);
@@ -21,7 +22,7 @@ export default function PokemonCard({ fetchData }) {
           <Spinner 
             width={100}
             height={100}
-            fill={"#FFDE00"}
+            fill={'#FFDE00'}
             className={css`
               margin-left: auto;
               margin-right: auto;
@@ -32,15 +33,22 @@ export default function PokemonCard({ fetchData }) {
         :
           <>
             {pokemonCollection.slice(0, fetchData).map((pokemon) => (
-              <CardPokemonContent key={pokemon.id}>
-                <Image 
-                  src={pokemon.dreamworld}
-                  alt={pokemon.name}
-                  width={150}
-                  height={150}
-                />
-                <h1>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h1>
-              </CardPokemonContent>
+              <Link 
+                href={`/details/${pokemon.name}`}
+                key={pokemon.id}
+              >
+                <CardPokemonContent>
+                  <Image 
+                    src={pokemon.dreamworld}
+                    alt={pokemon.name}
+                    width={150}
+                    height={150}
+                  />
+                  <h1>
+                    {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+                  </h1>
+                </CardPokemonContent>
+              </Link>
             ))}
           </>
        }

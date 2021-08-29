@@ -34,6 +34,7 @@ export const CardPokemonContent = styled.div`
   border-radius: 5px;
   margin-left: 1rem;
   margin-right: 1rem;
+  cursor: pointer;
   background-color: #B3A125;
 `;
 
