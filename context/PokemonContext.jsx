@@ -6,6 +6,7 @@ export const PokemonContext = createContext();
 
 export default function PokemonProvider({ children }) {
   const [namePokemon, setNamePokemon] = useState("");
+  const [getImagePokemon, setGetImagePokemon] = useState("")
   const getPokemon = useQuery(GET_POKEMONS);
   const getPokemonDetail = useQuery(GET_POKEMON_DETAIL, {
     variables: {
@@ -20,7 +21,8 @@ export default function PokemonProvider({ children }) {
     <PokemonContext.Provider value={{ 
       getPokemon,
       getPokemonDetail,
-      setNamePokemon 
+      setNamePokemon,
+      setGetImagePokemon
     }}
     >
       { children }

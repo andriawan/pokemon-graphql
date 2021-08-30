@@ -8,11 +8,10 @@ import {
   HomeContent, 
   HomeWrapper 
 } from '../styled/pages/Home';
-import PokemonProvider from '../context/PokemonContext';
 
 export default function Home() {
   const [fetchData, setFetchData] = useState(6)
-  
+
   useEffect(() => {
     const scrollHandler = () => {
       const scrollable = document.documentElement.scrollHeight - window.innerHeight;
@@ -40,9 +39,7 @@ export default function Home() {
             Find your Pokemon, and Catch ém all!
           </h1>
           <SearchPokemon />
-          <PokemonProvider>
-            <PokemonCard fetchData={fetchData}/>
-          </PokemonProvider>
+          <PokemonCard fetchData={fetchData}/>
         </HomeContent>
       </HomeWrapper>
     </Layout>

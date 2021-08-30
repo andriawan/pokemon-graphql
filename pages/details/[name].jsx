@@ -1,7 +1,6 @@
 import { NextSeo } from 'next-seo';
 import Layout from '../../components/Layout';
 import { useRouter } from 'next/router';
-import PokemonProvider from '../../context/PokemonContext';
 import PokemonDetail from '../../components/PokemonDetail';
 import { HomeContent, HomeWrapper } from '../../styled/pages/Home';
 
@@ -16,9 +15,7 @@ export default function PokemonDetails() {
       />
       <HomeWrapper>
         <HomeContent>
-          <PokemonProvider>
-            <PokemonDetail name={name}/>
-          </PokemonProvider>
+          <PokemonDetail name={name}/>
         </HomeContent>
       </HomeWrapper>
     </Layout>
