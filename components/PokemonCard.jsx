@@ -22,7 +22,7 @@ export default function PokemonCard() {
 
     if(loading) return null;
     if(error) return `Error! ${error}`;
-  }, [])
+  }, [data])
 
   return (
     <CardPokemonWrapper>

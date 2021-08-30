@@ -12,6 +12,7 @@ import {
 
 export default function Home() {
   const { setFetchData } = useContext(PokemonContext)
+  
   useEffect(() => {
     const scrollHandler = () => {
       const scrollable = document.documentElement.scrollHeight - window.innerHeight;

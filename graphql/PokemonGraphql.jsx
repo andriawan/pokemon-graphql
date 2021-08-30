@@ -30,14 +30,6 @@ export const GET_POKEMON_DETAIL = gql`
           name
         }
       }
-      stats {
-        base_stat
-        effort
-        stat {
-          id
-          name
-        }
-      }
       types {
         type {
           name
@@ -51,13 +43,6 @@ export const GET_POKEMON_DETAIL = gql`
         item {
           id
           name
-        }
-        version_details {
-          rarity
-          version {
-            id
-            name
-          }
         }
       }
       order
