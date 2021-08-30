@@ -1,21 +1,21 @@
 import { NextSeo } from 'next-seo';
 import Layout from '../../components/Layout';
 import { useRouter } from 'next/router';
-import GetPokemonDetailProvider from '../../context/GetPokemonDetailContext';
+import PokemonProvider from '../../context/PokemonContext';
 import PokemonDetail from '../../components/PokemonDetail';
 
 export default function PokemonDetails() {
-  const router = useRouter()
-  let { name } = router.query
+  const router = useRouter();
+  let { name } = router.query;
 
   return (
     <Layout>
       <NextSeo 
         title={!!name && name.toString().charAt(0).toUpperCase() + name.slice(1)}
       />
-      <GetPokemonDetailProvider>
+      <PokemonProvider>
         <PokemonDetail name={name}/>
-      </GetPokemonDetailProvider>
+      </PokemonProvider>
     </Layout>
-  )
-}
+  );
+};

@@ -8,7 +8,7 @@ import {
   HomeContent, 
   HomeWrapper 
 } from '../styled/pages/Home';
-import GetPokemonsProvider from '../context/GetPokemonContext';
+import PokemonProvider from '../context/PokemonContext';
 
 export default function Home() {
   const [fetchData, setFetchData] = useState(6)
@@ -38,9 +38,9 @@ export default function Home() {
             Find your Pokemon, and Catch ém all!
           </h1>
           <SearchPokemon />
-          <GetPokemonsProvider>
+          <PokemonProvider>
             <PokemonCard fetchData={fetchData}/>
-          </GetPokemonsProvider>
+          </PokemonProvider>
         </HomeContent>
       </HomeWrapper>
     </Layout>

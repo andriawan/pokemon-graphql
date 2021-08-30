@@ -3,7 +3,7 @@ import {
   CardPokemonContent,
   Loader
 } from '../styled/components/PokemonCard';
-import { GetPokemonsContext } from '../context/GetPokemonContext';
+import { PokemonContext } from '../context/PokemonContext';
 import { useContext } from 'react';
 import Image from 'next/image';
 import Spinner from '../public/icons/Spinner';
@@ -11,8 +11,8 @@ import { css } from '@emotion/css';
 import Link from 'next/link';
 
 export default function PokemonCard({ fetchData }) {
-  const dataPokemon = useContext(GetPokemonsContext);
-  const pokemonCollection = !!dataPokemon && dataPokemon.pokemons.results || [];
+  const dataPokemon = useContext(PokemonContext);
+  const pokemonCollection = !!dataPokemon.getPokemon.data && dataPokemon.getPokemon.data.pokemons.results || [];
 
   return (
     <CardPokemonWrapper>
