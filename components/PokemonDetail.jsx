@@ -7,7 +7,7 @@ export default function PokemonDetail({ name }) {
     setNamePokemon(name)
   }, [name])
 
-  console.log(data)
+  console.log(data.pokemon)
 
   return (
     <div>

@@ -13,14 +13,17 @@ import GetPokemonsProvider from '../context/GetPokemonContext';
 export default function Home() {
   const [fetchData, setFetchData] = useState(6)
   useEffect(() => {
-    window.addEventListener('scroll', () => {
+    const scrollHandler = () => {
       const scrollable = document.documentElement.scrollHeight - window.innerHeight;
       const scrolled = window.scrollY;
       if(scrolled === scrollable) {
         setFetchData(prev => prev + 6)
       }
-    })
-  })
+    }
+    window.addEventListener('scroll', scrollHandler)
+    
+    return() => window.removeEventListener('scroll', scrollHandler)
+  }, [])
   return (
     <Layout>
       <NextSeo 
