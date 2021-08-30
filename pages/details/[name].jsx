@@ -3,6 +3,7 @@ import Layout from '../../components/Layout';
 import { useRouter } from 'next/router';
 import PokemonProvider from '../../context/PokemonContext';
 import PokemonDetail from '../../components/PokemonDetail';
+import { HomeContent, HomeWrapper } from '../../styled/pages/Home';
 
 export default function PokemonDetails() {
   const router = useRouter();
@@ -13,9 +14,13 @@ export default function PokemonDetails() {
       <NextSeo 
         title={!!name && name.toString().charAt(0).toUpperCase() + name.slice(1)}
       />
-      <PokemonProvider>
-        <PokemonDetail name={name}/>
-      </PokemonProvider>
+      <HomeWrapper>
+        <HomeContent>
+          <PokemonProvider>
+            <PokemonDetail name={name}/>
+          </PokemonProvider>
+        </HomeContent>
+      </HomeWrapper>
     </Layout>
   );
 };

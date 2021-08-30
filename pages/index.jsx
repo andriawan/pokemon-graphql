@@ -12,6 +12,7 @@ import PokemonProvider from '../context/PokemonContext';
 
 export default function Home() {
   const [fetchData, setFetchData] = useState(6)
+  
   useEffect(() => {
     const scrollHandler = () => {
       const scrollable = document.documentElement.scrollHeight - window.innerHeight;
@@ -24,6 +25,7 @@ export default function Home() {
     
     return() => window.removeEventListener('scroll', scrollHandler)
   }, [])
+
   return (
     <Layout>
       <NextSeo 
