@@ -14,7 +14,7 @@ export default function PokemonDetails() {
         title={!!name && name.toString().charAt(0).toUpperCase() + name.slice(1)}
       />
       <GetPokemonDetailProvider>
-        <PokemonDetail />
+        <PokemonDetail name={name}/>
       </GetPokemonDetailProvider>
     </Layout>
   )

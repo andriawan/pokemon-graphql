@@ -1,9 +1,14 @@
 import { GetPokemonDetailContext } from '../context/GetPokemonDetailContext';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
-export default function PokemonDetail() {
-  const dataPokemonDetail = useContext(GetPokemonDetailContext)
-  console.log(dataPokemonDetail);
+export default function PokemonDetail({ name }) {
+  const { data, setNamePokemon } = useContext(GetPokemonDetailContext)
+  useEffect(() => {
+    setNamePokemon(name)
+  }, [name])
+
+  console.log(data)
+
   return (
     <div>
 

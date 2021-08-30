@@ -1,7 +1,6 @@
 import { 
   CardPokemonWrapper,
   CardPokemonContent,
-  SpinnerLoader,
   Loader
 } from '../styled/components/PokemonCard';
 import { GetPokemonsContext } from '../context/GetPokemonContext';
