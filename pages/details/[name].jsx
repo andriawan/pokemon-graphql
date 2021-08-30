@@ -11,7 +11,7 @@ export default function PokemonDetails() {
   return (
     <Layout>
       <NextSeo 
-        title={!!name && name.toString().charAt(0).toUpperCase() + name.slice(1)}
+        title={`Pokemon World - ${!!name && name.toString().charAt(0).toUpperCase() + name.slice(1)}`}
       />
       <HomeWrapper>
         <HomeContent>

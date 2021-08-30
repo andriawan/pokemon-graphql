@@ -4,15 +4,25 @@ import {
   Loader
 } from '../styled/components/PokemonCard';
 import { PokemonContext } from '../context/PokemonContext';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import Image from 'next/image';
 import Spinner from '../public/icons/Spinner';
 import { css } from '@emotion/css';
+import { useQuery } from '@apollo/client';
 import Link from 'next/link';
+import { GET_POKEMONS } from '../graphql/PokemonGraphql';
 
-export default function PokemonCard({ fetchData }) {
-  const dataPokemon = useContext(PokemonContext);
-  const pokemonCollection = !!dataPokemon.getPokemon.data && dataPokemon.getPokemon.data.pokemons.results || [];
+export default function PokemonCard() {
+  const { getPokemon, setGetPokemon, fetchData } = useContext(PokemonContext);
+  const { data, loading, error } = useQuery(GET_POKEMONS, { onCompleted: setGetPokemon });
+  const pokemonCollection = !!getPokemon && getPokemon.pokemons.results || [];
+
+  useEffect(() => {
+    setGetPokemon(data)
+
+    if(loading) return null;
+    if(error) return `Error! ${error}`;
+  }, [])
 
   return (
     <CardPokemonWrapper>

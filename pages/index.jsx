@@ -1,8 +1,9 @@
 import { NextSeo } from 'next-seo'
-import { useState, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import Layout from '../components/Layout'
 import PokemonCard from '../components/PokemonCard';
 import SearchPokemon from '../components/SearchPokemon';
+import { PokemonContext } from '../context/PokemonContext';
 import { SEOMeta } from '../seo/data';
 import { 
   HomeContent, 
@@ -10,8 +11,7 @@ import {
 } from '../styled/pages/Home';
 
 export default function Home() {
-  const [fetchData, setFetchData] = useState(6)
-
+  const { setFetchData } = useContext(PokemonContext)
   useEffect(() => {
     const scrollHandler = () => {
       const scrollable = document.documentElement.scrollHeight - window.innerHeight;
@@ -39,7 +39,7 @@ export default function Home() {
             Find your Pokemon, and Catch ém all!
           </h1>
           <SearchPokemon />
-          <PokemonCard fetchData={fetchData}/>
+          <PokemonCard />
         </HomeContent>
       </HomeWrapper>
     </Layout>
