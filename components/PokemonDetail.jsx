@@ -64,9 +64,6 @@ export default function PokemonDetail({ name }) {
   useEffect(() => {
     setNamePokemon(name)
     setGetPokemonDetail(detailPoke)
-    
-    localStorage.setItem('list-my-pokemon', JSON.stringify(myPokemon))
-
     if(loading) return null;
     if(error) return `Error! ${error}`;
   }, [name, myPokemon])

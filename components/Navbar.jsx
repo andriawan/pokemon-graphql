@@ -25,10 +25,6 @@ export default function Navbar() {
     myPokemon
   } = useContext(PokemonContext)
 
-  useEffect(() => {
-    localStorage.setItem('list-my-pokemon', JSON.stringify(myPokemon))
-  },[myPokemon])
-
   return (
     <BackgroundNavbar>
       <NavbarWrapper>

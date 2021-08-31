@@ -12,6 +12,7 @@ export default function PokemonProvider({ children }) {
   const [showAlertFailed, setShowAlertFailed] = useState(false);
   const [myPokemon, setMyPokemon] = useState([]);
   
+  // only init data from localstorage here, not in component
   useEffect(() => {
     setMyPokemon(JSON.parse(localStorage.getItem('list-my-pokemon')))
   }, [])
@@ -34,7 +35,19 @@ export default function PokemonProvider({ children }) {
         setTimeout(() => {
           setShowAlertSuccess(false)
         }, 3000);
-        setMyPokemon([...data, pokemon])
+         // implement checking duplicate for example
+         let isDuplicate = false;
+         data.forEach((value) => {
+           if(value.name === pokemon.name){
+             isDuplicate = true;
+           }
+         })
+ 
+         // only do localStorage.setItem, not in useEffect
+         if(!isDuplicate){
+           localStorage.setItem('list-my-pokemon', JSON.stringify([...data, pokemon]));
+           setMyPokemon([...data, pokemon])
+         }
       } else {
         setShowAlertFailed(true)
         setTimeout(() => {

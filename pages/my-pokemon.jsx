@@ -9,10 +9,6 @@ import PokemonCardCollection from '../components/PokemonCardCollection';
 export default function MyPokemon() {
   const { myPokemon } = useContext(PokemonContext)
 
-  useEffect(() => {
-    localStorage.setItem('list-my-pokemon', JSON.stringify(myPokemon))
-  }, [myPokemon])
-  
   return (
     <Layout>
       <NextSeo 
