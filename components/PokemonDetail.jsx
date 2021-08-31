@@ -49,7 +49,8 @@ export default function PokemonDetail({ name }) {
   const { data: pokemon } = useQuery(GET_POKEMONS, { onCompleted: setGetPokemon });
   const { data: detailPoke, loading, error } = useQuery(GET_POKEMON_DETAIL,{ 
     variables: { name: namePokemon },
-    onCompleted: setGetPokemonDetail
+    onCompleted: setGetPokemonDetail,
+    skip: !namePokemon
   });
 
   const pokemonDetail = !!getPokemonDetail && getPokemonDetail.pokemon;
@@ -57,6 +58,8 @@ export default function PokemonDetail({ name }) {
   const pokemonImage = !!imagePokemon && imagePokemon.find(
     (pokemon) => pokemon.name === name
   );
+
+  const {id, ...pokemonList} = pokemonImage;
 
   useEffect(() => {
     setNamePokemon(name)
@@ -113,7 +116,7 @@ export default function PokemonDetail({ name }) {
                   margin-right: auto;
                   animation: ${Bounce} 1s ease infinite;
                 `}
-                onClick={() => handleCatchPokemon(pokemonImage)}
+                onClick={() => handleCatchPokemon(pokemonList)}
               >
                 <Image 
                   src={Pokeball}
