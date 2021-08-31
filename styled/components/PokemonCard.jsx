@@ -12,8 +12,6 @@ export const CardPokemonWrapper = styled.div`
   margin-right: auto;
   margin-bottom: 5rem;
   ${mediaQueries[1]} {
-    margin-top: 8rem;
-    margin-bottom: 8rem;
     max-width: 536px;
   }
   ${mediaQueries[3]} {

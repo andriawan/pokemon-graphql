@@ -38,10 +38,10 @@ export default function Navbar() {
               }
             `}
             >
-              My Pokemon
+              Pokemon List
             </span>
           </Link>
-          <Link href="/" passHref>
+          <Link href="/my-pokemon" passHref>
             <span className={css`
               ${ListNav}
               &:hover {
@@ -49,7 +49,7 @@ export default function Navbar() {
               }
             `}
             >
-              Pokemon List
+              My Pokemon
             </span>
           </Link>
           <Hamburger 
@@ -71,10 +71,10 @@ export default function Navbar() {
                   }
                 `}
                 >
-                  My Pokemon
+                  Pokemon List
                 </span>
               </Link>
-              <Link href="/" passHref>
+              <Link href="/my-pokemon" passHref>
                 <span className={css`
                   ${ListNavMobile}
                   &:hover {
@@ -82,7 +82,7 @@ export default function Navbar() {
                   }
                 `}
                 >
-                  Pokemon List
+                  My Pokemon
                 </span>
               </Link>
             </section>

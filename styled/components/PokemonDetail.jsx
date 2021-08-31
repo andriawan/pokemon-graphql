@@ -10,13 +10,16 @@ export const PokemonDetailWrapper = styled.div`
 
 export const PokemonDetailContent = styled.div`
   display: flex;
-  align-items: center;
   flex-direction: column;
+  justify-content: space-between;
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid #B3A125;
   border-radius: 10px;
-  padding: 1rem;
+  width: 100%;
+  ${mediaQueries[2]} {
+    flex-direction: row;
+    align-items: normal;
+  }
 `;
 
 export const WrapperExperience = styled.div`
@@ -82,21 +85,26 @@ export const WrapperAbilities = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 `;
 
 export const WrapperContentAbilities = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+  ${mediaQueries[2]} {
+    flex-direction: row;
+  }
 `;
 
 export const ContentAbilities = styled.div`
   display: flex;
   background-color: #CC0000;
   color: white;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+  margin: 0.5rem;
   padding: 0.5rem;
   border-radius: 100px;
+  min-width: 5rem;
 `;
 
 export const WrapperMoves = styled.div`
@@ -108,7 +116,8 @@ export const WrapperMoves = styled.div`
 export const WrapperContentMoves = styled.div`
   display: flex;
   flex-direction: column;
-  ${mediaQueries[1]} {
+  align-items: center;
+  ${mediaQueries[2]} {
     flex-direction: row;
   }
 `;
@@ -120,6 +129,7 @@ export const ContentMoves = styled.div`
   margin: 0.5rem;
   padding: 0.5rem;
   border-radius: 100px;
+  min-width: 5rem;
 `;
 
 export const WrapperTypes = styled.div`
@@ -130,21 +140,25 @@ export const WrapperTypes = styled.div`
 export const WrapperContentTypes = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: center;
 `;
 
 export const ContentTypes = styled.div`
   display: flex;
+  justify-content: center;
   background-color: #FFDE00;
   color: white;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   padding: 0.5rem;
   border-radius: 100px;
+  min-width: 5rem;
 `;
 
 export const WrapperSpecies = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 
 export const WrapperContentSpecies = styled.div`
@@ -160,6 +174,7 @@ export const ContentSpecies = styled.div`
   margin-right: 0.5rem;
   padding: 0.5rem;
   border-radius: 100px;
+  min-width: 5rem;
 `;
 
 export const TextTitle = styled.div`
@@ -171,6 +186,15 @@ export const TextTitle = styled.div`
   background-color: #FFDE00;
   border-radius: 5rem;
   color: #FFFFFF;
+`;
+
+export const TextSubtitle = `
+  text-align: center; 
+  margin-top: 1rem;
+  ${mediaQueries[2]} {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 `;
 
 export const Bounce = keyframes`
