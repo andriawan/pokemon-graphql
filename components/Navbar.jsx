@@ -6,17 +6,28 @@ import {
   HamburgerDisplay,
   NavbarMobileWrapper,
   ListNavMobile,
-  NavbarMobileSection
+  NavbarMobileSection,
+  Notification
 } from '../styled/components/Navbar';
 import { css } from '@emotion/css';
 import Image from 'next/image';
 import Link from 'next/link';
 import PokemonLogo from '../public/LogoPokemon.png';
 import Hamburger from '../public/icons/HamburgerIcon';
-import { useState } from 'react';
+import { useContext, useEffect } from 'react';
+import { PokemonContext } from '../context/PokemonContext';
 
 export default function Navbar() {
-  const [showNavMobile, setShowNavMobile] = useState(false)
+  const {
+    showNavMobile,
+    setShowNavMobile,
+    myPokemon
+  } = useContext(PokemonContext)
+
+  useEffect(() => {
+    localStorage.setItem('list-my-pokemon', JSON.stringify(myPokemon))
+  },[myPokemon])
+
   return (
     <BackgroundNavbar>
       <NavbarWrapper>
@@ -41,6 +52,15 @@ export default function Navbar() {
               Pokemon List
             </span>
           </Link>
+          <div className={css`${Notification}`}>
+            <span className={css`
+              color: #FFFFFF;
+              font-size: 12px;
+              margin: auto;
+            `}>
+              {myPokemon === null ? 0 : myPokemon.length}
+            </span>
+          </div>
           <Link href="/my-pokemon" passHref>
             <span className={css`
               ${ListNav}

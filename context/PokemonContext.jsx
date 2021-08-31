@@ -3,6 +3,7 @@ import { createContext, useState } from 'react';
 export const PokemonContext = createContext();
 
 export default function PokemonProvider({ children }) {
+  const [showNavMobile, setShowNavMobile] = useState(false)
   const [namePokemon, setNamePokemon] = useState('');
   const [getPokemon, setGetPokemon] = useState();
   const [getPokemonDetail, setGetPokemonDetail] = useState();
@@ -10,14 +11,14 @@ export default function PokemonProvider({ children }) {
   const [showAlertSuccess, setShowAlertSuccess] = useState(false);
   const [showAlertFailed, setShowAlertFailed] = useState(false);
   const [myPokemon, setMyPokemon] = useState(typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('list-my-pokemon')) : null);
-
+  console.log(myPokemon);
   const handleCatchPokemon = (pokemon) => {
     let data = JSON.parse(localStorage.getItem('list-my-pokemon'))
-    
+
     const maxNumber = 9;
     const order = getPokemonDetail.pokemon.order;
-    const possibilityCatch = Math.ceil(Math.random() * maxNumber)
-    const resultCatch = Math.ceil((order / possibilityCatch) * 10);
+    const possibilityCatch = Math.floor(Math.random() * maxNumber)
+    const resultCatch = Math.floor((order / possibilityCatch) * 10);
 
     if(!data) {
       let temporaryData = []

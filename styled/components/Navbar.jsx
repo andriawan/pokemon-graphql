@@ -7,6 +7,17 @@ export const BackgroundNavbar = styled.div`
   width: 100%;
 `;
 
+export const Notification = `
+  position: absolute;
+  background-color: #FF5252;
+  border-radius: 999px;
+  width: 1.2rem;
+  height: 1.2rem;
+  right: 10px;
+  top: 15px;
+  display: flex;
+`;
+
 export const NavbarWrapper = styled.main`
   display: flex;
   flex-direction: row;

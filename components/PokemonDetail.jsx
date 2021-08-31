@@ -1,5 +1,5 @@
 import { PokemonContext } from '../context/PokemonContext';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import Spinner from '../public/icons/Spinner';
 import { css } from '@emotion/css';
 import { Loader } from '../styled/components/PokemonCard';
@@ -63,7 +63,7 @@ export default function PokemonDetail({ name }) {
     setGetPokemonDetail(detailPoke)
     
     localStorage.setItem('list-my-pokemon', JSON.stringify(myPokemon))
-    
+
     if(loading) return null;
     if(error) return `Error! ${error}`;
   }, [name, myPokemon])
