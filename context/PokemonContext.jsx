@@ -1,4 +1,8 @@
-import { createContext, useState } from 'react';
+import { 
+  createContext, 
+  useEffect, 
+  useState 
+} from 'react';
 
 export const PokemonContext = createContext();
 
@@ -10,7 +14,11 @@ export default function PokemonProvider({ children }) {
   const [fetchData, setFetchData] = useState(6);
   const [showAlertSuccess, setShowAlertSuccess] = useState(false);
   const [showAlertFailed, setShowAlertFailed] = useState(false);
-  const [myPokemon, setMyPokemon] = useState(typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('list-my-pokemon')) : null);
+  const [myPokemon, setMyPokemon] = useState([]);
+
+  useEffect(() => {
+    setMyPokemon(JSON.parse(localStorage.getItem('list-my-pokemon')))
+  }, [])
 
   const handleCatchPokemon = (pokemon) => {
     let data = JSON.parse(localStorage.getItem('list-my-pokemon'))
