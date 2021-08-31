@@ -11,7 +11,7 @@ export default function PokemonProvider({ children }) {
   const [showAlertSuccess, setShowAlertSuccess] = useState(false);
   const [showAlertFailed, setShowAlertFailed] = useState(false);
   const [myPokemon, setMyPokemon] = useState(typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('list-my-pokemon')) : null);
-  console.log(myPokemon);
+
   const handleCatchPokemon = (pokemon) => {
     let data = JSON.parse(localStorage.getItem('list-my-pokemon'))
 
@@ -54,7 +54,10 @@ export default function PokemonProvider({ children }) {
       showAlertFailed,
       setShowAlertFailed,
       handleCatchPokemon,
-      myPokemon
+      myPokemon,
+      setMyPokemon,
+      showNavMobile,
+      setShowNavMobile
     }}
     >
       { children }

@@ -7,7 +7,8 @@ import {
   NavbarMobileWrapper,
   ListNavMobile,
   NavbarMobileSection,
-  Notification
+  Notification,
+  NotificationMobile
 } from '../styled/components/Navbar';
 import { css } from '@emotion/css';
 import Image from 'next/image';
@@ -52,26 +53,31 @@ export default function Navbar() {
               Pokemon List
             </span>
           </Link>
-          <div className={css`${Notification}`}>
-            <span className={css`
-              color: #FFFFFF;
-              font-size: 12px;
-              margin: auto;
-            `}>
-              {myPokemon === null ? 0 : myPokemon.length}
-            </span>
+          <div className={css`
+            display: flex; 
+            flex-direction: row-reverse;
+          `}>
+            <div className={css`${Notification}`}>
+              <span className={css`
+                color: #FFFFFF;
+                font-size: 12px;
+                margin: auto;
+              `}>
+                {myPokemon === null ? 0 : myPokemon.length}
+              </span>
+            </div>
+            <Link href="/my-pokemon" passHref>
+              <span className={css`
+                ${ListNav}
+                &:hover {
+                  color: #B3A125;
+                }
+              `}
+              >
+                My Pokemon
+              </span>
+            </Link>
           </div>
-          <Link href="/my-pokemon" passHref>
-            <span className={css`
-              ${ListNav}
-              &:hover {
-                color: #B3A125;
-              }
-            `}
-            >
-              My Pokemon
-            </span>
-          </Link>
           <Hamburger 
             width={30}
             height={30}
@@ -86,6 +92,7 @@ export default function Navbar() {
               <Link href="/" passHref>
                 <span className={css`
                   ${ListNavMobile}
+                  border-bottom: 2px solid white;
                   &:hover {
                     color: #B3A125;
                   }
@@ -94,17 +101,30 @@ export default function Navbar() {
                   Pokemon List
                 </span>
               </Link>
-              <Link href="/my-pokemon" passHref>
-                <span className={css`
-                  ${ListNavMobile}
-                  &:hover {
-                    color: #B3A125;
-                  }
-                `}
-                >
-                  My Pokemon
-                </span>
-              </Link>
+              <div className={css`
+                border-bottom: 2px solid white;
+              `}>
+                <div className={css`${NotificationMobile}`}>
+                  <span className={css`
+                    color: #FFFFFF;
+                    font-size: 12px;
+                    margin: auto;
+                  `}>
+                    {myPokemon === null ? 0 : myPokemon.length}
+                  </span>
+                </div>
+                <Link href="/my-pokemon" passHref>
+                  <span className={css`
+                    ${ListNavMobile}
+                    &:hover {
+                      color: #B3A125;
+                    }
+                  `}
+                  >
+                    My Pokemon
+                  </span>
+                </Link>
+              </div>
             </section>
           </NavbarMobileWrapper>
         )}

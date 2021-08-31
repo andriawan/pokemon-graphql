@@ -8,7 +8,23 @@ export const BackgroundNavbar = styled.div`
 `;
 
 export const Notification = `
-  position: absolute;
+  margin-top: -5px;
+  margin-left: -8px;
+  background-color: #FF5252;
+  border-radius: 999px;
+  width: 1.2rem;
+  height: 1.2rem;
+  right: 10px;
+  top: 15px;
+  display: none;
+  ${mediaQueries[1]} {
+    display: flex;
+  }
+`;
+
+export const NotificationMobile = `
+  margin-bottom: -10px;
+  margin-left: 8.5rem;
   background-color: #FF5252;
   border-radius: 999px;
   width: 1.2rem;
@@ -16,6 +32,9 @@ export const Notification = `
   right: 10px;
   top: 15px;
   display: flex;
+  ${mediaQueries[1]} {
+    display: none;
+  }
 `;
 
 export const NavbarWrapper = styled.main`
@@ -57,7 +76,6 @@ export const ListNavMobile = `
   color: #FFFFFF;
   margin-top: 0.5rem;
   margin-bottom: 1rem;
-  border-bottom: 2px solid white;
   cursor: pointer;
 `
 
